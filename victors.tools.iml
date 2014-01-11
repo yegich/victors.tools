@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -25,6 +26,7 @@
     <orderEntry type="library" name="java" level="project" />
     <orderEntry type="library" name="org.jbehave:jbehave-groovy:3.8" level="project" />
     <orderEntry type="library" name="org.jbehave:jbehave-core:3.8" level="project" />
+    <orderEntry type="library" name="org.hamcrest:hamcrest-all:1.3" level="project" />
   </component>
 </module>
 

@@ -1,15 +1,15 @@
 package advertising
 
 import static advertising.KeywordType.*
-import static advertising.TemplateWordType.ACTION
-import static advertising.TemplateWordType.DESCRIPTON
-import static advertising.TemplateWordType.LOCATION
-import static advertising.TemplateWordType.PLACE
 
 class KeywordGenerator {
 
     def keywords
-    def templateWords
+    def templates
+
+    KeywordGenerator() {
+        keywords = [:]
+    }
 
     def patternsWithTemplates = [
             /^([\w\d]+)\ +([\w\d]+)\ +([\w\d-]+)/:[
@@ -25,7 +25,7 @@ class KeywordGenerator {
                     "\$1\$3"]
     ]
 
-    def getKyewordsByType(KeywordType keywordType) {
+    def getKeywordsByType(KeywordType keywordType) {
         return keywords[keywordType]
     }
 
@@ -37,22 +37,6 @@ class KeywordGenerator {
     private void initKyewordType(KeywordType keywordType) {
         if (!keywords.get(keywordType)) {
             keywords.put(keywordType, [])
-        }
-    }
-
-    void addTemplateWord(TemplateWordType templateWordType, String word) {
-        initTemplateWordType(templateWordType)
-        templateWords.get(templateWordType).add(word)
-    }
-
-    List<String> getTemplateWordsByType(TemplateWordType templateWordType) {
-        return templateWords.get(templateWordType)
-    }
-
-
-    private void initTemplateWordType(TemplateWordType templateWordType) {
-        if (!templateWords.get(templateWordType)) {
-            templateWords.put(templateWordType, [])
         }
     }
 
@@ -72,15 +56,15 @@ class KeywordGenerator {
 
     List<String> generateKeyphrases() {
         def allKeys = []
-        getKyewordsByType(AREA).each {area ->
+        getKeywordsByType(AREA).each {area ->
             allKeys.add(area)
-            getKyewordsByType(GOODS_GROUP).each { goodsGroup ->
+            getKeywordsByType(GOODS_GROUP).each { goodsGroup ->
                 allKeys.add("${area} ${goodsGroup}")
                 allKeys.add(goodsGroup)
             }
         }
 
-        getKyewordsByType(NAME).each {name ->
+        getKeywordsByType(NAME).each {name ->
             allKeys.add(name)
             allKeys.addAll(modifyNamedKeywords([name]))
         }
@@ -88,10 +72,10 @@ class KeywordGenerator {
         def allPhrases = []
 
         //TODO find better way to implement this
-        recursivePrhaseGeneration(allPhrases, ACTION, null, [ACTION,  DESCRIPTON, PLACE, LOCATION])
-        recursivePrhaseGeneration(allPhrases, DESCRIPTON, null, [ DESCRIPTON, PLACE, LOCATION])
-        recursivePrhaseGeneration(allPhrases, PLACE, null, [ PLACE, LOCATION])
-        recursivePrhaseGeneration(allPhrases, LOCATION, null, [ LOCATION])
+        recursivePhraseGeneration(allPhrases, ACTION, null, [ACTION,  DESCRIPTON, PLACE, LOCATION])
+        recursivePhraseGeneration(allPhrases, DESCRIPTON, null, [ DESCRIPTON, PLACE, LOCATION])
+        recursivePhraseGeneration(allPhrases, PLACE, null, [ PLACE, LOCATION])
+        recursivePhraseGeneration(allPhrases, LOCATION, null, [ LOCATION])
 
         def keyphrases = []
 
@@ -104,22 +88,27 @@ class KeywordGenerator {
         return  keyphrases
     }
 
-    def recursivePrhaseGeneration(def allPhrases, TemplateWordType type, String processedWord, def orderedTemplateWordTypes) {
-        def newOrder = []
-        orderedTemplateWordTypes.each{if(type != it && getTemplateWordsByType(it)) newOrder << it}
+    def recursivePhraseGeneration(List<KeywordType> sequence, KeywordType type, String processedWord, List<String> phrases) {
 
-        if(processedWord) {
-            allPhrases.add(processedWord.trim())
-        }
-
-        if(!type) {
+        if(!sequence) {
+            if(processedWord) {
+                phrases.add(processedWord.trim())
+            }
             return
         }
 
-        def words = getTemplateWordsByType(type)
+        def newSequence = []
+        type = type ? type : sequence.first()
+        sequence.each{
+            if(type != it && getKeywordsByType(it)) {
+                newSequence << it
+            }
+        }
+
+        def words = getKeywordsByType(type)
         words.each { word ->
             word = processedWord ?  "${processedWord} ${word}" : word
-            recursivePrhaseGeneration(allPhrases, newOrder?newOrder.first():null, "${word}", newOrder)
+            recursivePhraseGeneration(newSequence, newSequence?newSequence.first():null, "${word}", phrases)
         }
     }
 }

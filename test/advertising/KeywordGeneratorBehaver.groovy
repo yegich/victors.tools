@@ -57,13 +57,13 @@ public class KeywordGeneratorBehaver extends InjectableEmbedder {
     public  void keywords (ExamplesTable keywordTable) {
         def rows = keywordTable.getRows()
         rows.each { row ->
-            generator.addKeyword(KeywordType.valueOf(row.get("type")), row.get("keyword"))
+            generator.addKeyword(KeywordType.valueOf(row.get("withType")), row.get("keyword"))
         }
     }
 
     @When("generate keyword modification")
     public  void generateKeywordModification () {
-        modifications = generator.modifyNamedKeywords(generator.getKyewordsByType(NAME))
+        modifications = generator.modifyNamedKeywords(generator.getKeywordsByType(NAME))
     }
 
     @Then("modifications returned are: \$modificationTable")

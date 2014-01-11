@@ -4,5 +4,6 @@ package advertising
  * Created by user on 30.12.13.
  */
 public enum KeywordType {
-AREA, NAME,GOODS_GROUP
+    AREA, NAME,GOODS_GROUP,
+    ACTION, LOCATION, PLACE, DESCRIPTON
 }

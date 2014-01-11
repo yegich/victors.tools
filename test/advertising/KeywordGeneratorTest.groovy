@@ -1,15 +1,20 @@
 package advertising
 
-import org.hamcrest.CoreMatchers
+import org.hamcrest.collection.IsIterableContainingInOrder
+
+import static advertising.KeywordGeneratorProtoype.SIMPLE_GENERATOR
+import static advertising.KeywordGeneratorProtoype.getPHRASES
+import static advertising.KeywordGeneratorProtoype.getSIMPLE_GENERATOR
+import static advertising.KeywordGeneratorProtoype.getTHREE_TYPE_TEMPLATE
+import static advertising.KeywordGeneratorProtoype.getTHREE_TYPE_TEMPLATE
+import static org.hamcrest.Matchers.*
 import org.junit.Before
 import org.junit.Test
 
-import static advertising.KeywordType.*
+import static advertising.KeywordType.ACTION
 import static advertising.KeywordType.AREA
-import static advertising.TemplateWordType.*
+import static advertising.Template.aTemplate
 
-import static org.hamcrest.CoreMatchers.is
-import static org.hamcrest.CoreMatchers.notNullValue
 import static org.junit.Assert.assertThat
 
 /**
@@ -18,42 +23,38 @@ import static org.junit.Assert.assertThat
 class KeywordGeneratorTest {
 
     KeywordGenerator generator
+    def phrases
 
     @Before
     public void setUp() {
         generator = new KeywordGenerator()
+        phrases = []
     }
 
     @Test
     public void addKeyword() {
         generator.addKeyword(AREA, "тренажеры")
-        assertThat(generator.getKyewordsByType(AREA), is(["тренажеры"]))
-    }
-
-    @Test
-    public void addTemplateWord() {
-        generator.addTemplateWord(ACTION, "найти")
-        assertThat(generator.getTemplateWordsByType(ACTION), is(["найти"]))
+        assertThat(generator.getKeywordsByType(AREA), is(["тренажеры"]))
     }
 
     @Test
     void initGenerator() {
-        def generator = new KeywordGenerator()
-
-        generator.keywords = [
-                (AREA):["тренажеры", "спотривный инвентарь", "сопртивное оборудование", "снаряды для спорта"]
-        ]
-
-        generator.templateWords = [
+        def generator = new KeywordGenerator(
+        keywords:[
+                (AREA):["тренажеры", "спотривный инвентарь", "сопртивное оборудование", "снаряды для спорта"],
                 (ACTION):["найти", "купить", "подобрать", "сравнить", "выбрать" ]
-        ]
+        ],
+        templates:[aTemplate().build()])
 
-        assertThat(generator.keywords[AREA], CoreMatchers.is(notNullValue()))
-        assertThat(generator.templateWords[ACTION], CoreMatchers.is(notNullValue()))
+        assertThat(generator.templates, is(notNullValue()))
+        assertThat(generator.keywords[ACTION], is(notNullValue()))
     }
 
     @Test
-    void
+    void generateKeypraseUsingTempalateRecursively() {
+        SIMPLE_GENERATOR.recursivePhraseGeneration(THREE_TYPE_TEMPLATE.getSequence(), null, null, phrases)
+        assertThat(phrases, IsIterableContainingInOrder.contains(PHRASES.toArray()))
+    }
 
 
 }

@@ -11,10 +11,8 @@ Given keywords:
 | type        | keyword                 |
 | NAME        | DISCOVERY               |
 | AREA        | тренажеры               |
-Given template words:
-| type       | template word           |
-| ACTION     | купить                  |
-| LOCATION   | нежин                   |
+| ACTION      | купить                  |
+| LOCATION    | нежин                   |
 
 When generate keyphrases
 Then keyphrases returned are:

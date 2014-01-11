@@ -51,14 +51,7 @@ public class KeyPhraseGeneratorBehaver extends InjectableEmbedder {
     public  void keywords (ExamplesTable keywordTable) {
         def rows = keywordTable.getRows()
         rows.each { row ->
-            generator.addKeyword(KeywordType.valueOf(row.get("type")), row.get("keyword"))
-        }
-    }
-    @Given("template words: \$templateWords")
-    public  void templateWords (ExamplesTable templateWords) {
-        def rows = templateWords.getRows()
-        rows.each { row ->
-            generator.addTemplateWord(TemplateWordType.valueOf(row.get("type")), row.get("template word"))
+            generator.addKeyword(KeywordType.valueOf(row.get("withType")), row.get("keyword"))
         }
     }
 

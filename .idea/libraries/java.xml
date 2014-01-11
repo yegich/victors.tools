@@ -1,0 +1,66 @@
+<component name="libraryTable">
+  <library name="java">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/core/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/i18n/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/maps/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/pico/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/rest/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/urls/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/weld/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/guice/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/jruby/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/scala/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/google/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/groovy/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/needle/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/needle/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/spring/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/testng/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/gherkin/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/threads/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/gameoflife/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/gameoflife/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/annotations/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/performance/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/executable-jar/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/spring-security/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/noughtsandcrosses/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/examples/noughtsandcrosses/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-ant/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-ant/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-odf/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-odf/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-core/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-core/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-pico/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-pico/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-rest/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-rest/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-weld/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-weld/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-guice/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-guice/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-scala/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-scala/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-google/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-google/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-groovy/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-groovy/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-needle/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-needle/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-spring/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-spring/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-gherkin/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-gherkin/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-maven-plugin/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-maven-plugin/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-hudson-plugin/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-hudson-plugin/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-jenkins-plugin/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/jbehave-distribution-3.9-src.zip!/jbehave-3.9/jbehave-jenkins-plugin/src/test/java" />
+    </SOURCES>
+  </library>
+</component>
