@@ -1,0 +1,36 @@
+A story is a collection of scenarios
+(advertising/phrase_generator.story)
+Narrative:
+In order to get all modifications of item name
+As a yandex advertising creater
+I want to generate them
+Scenario: Name modifications
+Given keywords:
+
+|type|keyword|
+|NAME|DISCOVERY|
+|AREA|тренажеры|
+
+Given template words:
+
+|type|template word|
+|ACTION|купить|
+|LOCATION|нежин|
+
+When generate keyphrases
+Then keyphrases returned are:
+
+|keyphrases|
+|тренажеры купить|
+|тренажеры купить нежин|
+|тренажеры нежин|
+|DISCOVERY купить|
+|DISCOVERY купить нежин|
+|DISCOVERY нежин|
+ (FAILED)
+(java.lang.AssertionError: 
+Expected: (a collection containing "тренажеры купить" and a collection containing "тренажеры купить нежин" and a collection containing "тренажеры нежин" and a collection containing "DISCOVERY купить" and a collection containing "DISCOVERY купить нежин" and a collection containing "DISCOVERY нежин")
+     got: <[тренажеры купить, тренажеры купить нежин, тренажеры нежин, DISCOVERY купить, DISCOVERY купить нежин, DISCOVERY нежин]>
+)
+
+
