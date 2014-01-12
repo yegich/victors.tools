@@ -7,6 +7,7 @@ import static advertising.KeywordGeneratorProtoype.getPHRASES
 import static advertising.KeywordGeneratorProtoype.getSIMPLE_GENERATOR
 import static advertising.KeywordGeneratorProtoype.getTHREE_TYPE_TEMPLATE
 import static advertising.KeywordGeneratorProtoype.getTHREE_TYPE_TEMPLATE
+import static advertising.KeywordGeneratorProtoype.getTHREE_TYPE_TEMPLATE
 import static org.hamcrest.Matchers.*
 import org.junit.Before
 import org.junit.Test
@@ -54,6 +55,11 @@ class KeywordGeneratorTest {
     void generateKeypraseUsingTempalateRecursively() {
         SIMPLE_GENERATOR.recursivePhraseGeneration(THREE_TYPE_TEMPLATE.getSequence(), null, null, phrases)
         assertThat(phrases, IsIterableContainingInOrder.contains(PHRASES.toArray()))
+    }
+
+    @Test
+    void generateKyephrases() {
+        assertThat(SIMPLE_GENERATOR.generateKeyphrases(), IsIterableContainingInOrder.contains(PHRASES.toArray()))
     }
 
 

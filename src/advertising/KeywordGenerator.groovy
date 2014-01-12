@@ -55,36 +55,10 @@ class KeywordGenerator {
     }
 
     List<String> generateKeyphrases() {
-        def allKeys = []
-        getKeywordsByType(AREA).each {area ->
-            allKeys.add(area)
-            getKeywordsByType(GOODS_GROUP).each { goodsGroup ->
-                allKeys.add("${area} ${goodsGroup}")
-                allKeys.add(goodsGroup)
-            }
-        }
-
-        getKeywordsByType(NAME).each {name ->
-            allKeys.add(name)
-            allKeys.addAll(modifyNamedKeywords([name]))
-        }
-
-        def allPhrases = []
-
-        //TODO find better way to implement this
-        recursivePhraseGeneration(allPhrases, ACTION, null, [ACTION,  DESCRIPTON, PLACE, LOCATION])
-        recursivePhraseGeneration(allPhrases, DESCRIPTON, null, [ DESCRIPTON, PLACE, LOCATION])
-        recursivePhraseGeneration(allPhrases, PLACE, null, [ PLACE, LOCATION])
-        recursivePhraseGeneration(allPhrases, LOCATION, null, [ LOCATION])
-
         def keyphrases = []
-
-        allKeys.each { key ->
-            allPhrases.each{ phrase ->
-                keyphrases.add("${key} ${phrase}")
-            }
+        templates.each { template ->
+            recursivePhraseGeneration(template.getSequence(), null, null, keyphrases)
         }
-
         return  keyphrases
     }
 
