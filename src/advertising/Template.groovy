@@ -8,6 +8,21 @@ class Template {
 
     List<KeywordType> types = []
 
+    boolean equals(o) {
+        if (this.is(o)) return true
+        if (!(o instanceof Template)) return false
+
+        Template template = (Template) o
+
+        if (types != template.types) return false
+
+        return true
+    }
+
+    int hashCode() {
+        return (types != null ? types.hashCode() : 0)
+    }
+
     static Builder aTemplate() {
         return new Builder();
     }

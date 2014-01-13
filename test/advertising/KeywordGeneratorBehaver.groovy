@@ -20,6 +20,7 @@ import org.junit.matchers.JUnitMatchers
 import org.junit.runner.RunWith
 
 import static advertising.KeywordType.NAME
+import static advertising.KeywordType.NAME
 import static org.jbehave.core.reporters.StoryReporterBuilder.Format.*
 
 /**
@@ -63,7 +64,7 @@ public class KeywordGeneratorBehaver extends InjectableEmbedder {
 
     @When("generate keyword modification")
     public  void generateKeywordModification () {
-        modifications = generator.modifyNamedKeywords(generator.getKeywordsByType(NAME))
+        modifications = generator.getKeywordsByType(NAME)
     }
 
     @Then("modifications returned are: \$modificationTable")

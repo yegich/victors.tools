@@ -26,6 +26,14 @@ class KeywordGenerator {
     ]
 
     def getKeywordsByType(KeywordType keywordType) {
+        if(keywordType == NAME){
+            def names = []
+            keywords[keywordType].each { name ->
+                names << name
+                names.addAll(modifyNamedKeywords(name))
+            }
+            return names
+        }
         return keywords[keywordType]
     }
 
@@ -40,14 +48,30 @@ class KeywordGenerator {
         }
     }
 
-    List<String> modifyNamedKeywords(def names) {
+   private boolean hasTypedKeywords(KeywordType type) {
+       return keywords[type]
+   }
+
+   def skipInvalidTemplates() {
+       def validTemplates = []
+       templates.each { template ->
+           boolean isValid = true
+           template.getSequence().each {
+               isValid &= hasTypedKeywords(it)
+           }
+           if(isValid) {
+               validTemplates << template
+           }
+       }
+       return validTemplates
+   }
+
+    List<String> modifyNamedKeywords(def name) {
         def modifications = []
-        names.each { name ->
-            patternsWithTemplates.each { pattern, templates ->
-                if (name ==~ pattern) {
-                    templates.each { template ->
-                        modifications.add(name.replaceAll(pattern, template))
-                    }
+        patternsWithTemplates.each { pattern, templates ->
+            if (name ==~ pattern) {
+                templates.each { template ->
+                    modifications << name.replaceAll(pattern, template)
                 }
             }
         }
@@ -56,14 +80,13 @@ class KeywordGenerator {
 
     List<String> generateKeyphrases() {
         def keyphrases = []
-        templates.each { template ->
+        skipInvalidTemplates().each { template ->
             recursivePhraseGeneration(template.getSequence(), null, null, keyphrases)
         }
         return  keyphrases
     }
 
     def recursivePhraseGeneration(List<KeywordType> sequence, KeywordType type, String processedWord, List<String> phrases) {
-
         if(!sequence) {
             if(processedWord) {
                 phrases.add(processedWord.trim())

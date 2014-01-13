@@ -1,21 +1,16 @@
 package advertising
 
+import org.hamcrest.collection.IsIterableContainingInAnyOrder
 import org.hamcrest.collection.IsIterableContainingInOrder
-
-import static advertising.KeywordGeneratorProtoype.SIMPLE_GENERATOR
-import static advertising.KeywordGeneratorProtoype.getPHRASES
-import static advertising.KeywordGeneratorProtoype.getSIMPLE_GENERATOR
-import static advertising.KeywordGeneratorProtoype.getTHREE_TYPE_TEMPLATE
-import static advertising.KeywordGeneratorProtoype.getTHREE_TYPE_TEMPLATE
-import static advertising.KeywordGeneratorProtoype.getTHREE_TYPE_TEMPLATE
-import static org.hamcrest.Matchers.*
 import org.junit.Before
 import org.junit.Test
+import org.testng.reporters.jq.TestPanel
 
-import static advertising.KeywordType.ACTION
-import static advertising.KeywordType.AREA
+import static advertising.KeywordGeneratorProtoype.*
+import static advertising.KeywordType.*
 import static advertising.Template.aTemplate
-
+import static org.hamcrest.Matchers.is
+import static org.hamcrest.Matchers.notNullValue
 import static org.junit.Assert.assertThat
 
 /**
@@ -39,6 +34,16 @@ class KeywordGeneratorTest {
     }
 
     @Test
+    void modifyKeywordWithTypeName() {
+        generator.addKeyword(NAME, KEYWORD_WITH_TYPE_NAME)
+        assertThat(generator.getKeywordsByType(NAME), IsIterableContainingInAnyOrder.containsInAnyOrder(
+                KEYWORD_WITH_TYPE_NAME,
+                KEYWORD_WITHOUT_FIRST_SPACE,
+                KEYWORD_WITHOUT_LAST_SPACE,
+                KEYWORD_WITHOUT_DASH))
+    }
+
+    @Test
     void initGenerator() {
         def generator = new KeywordGenerator(
         keywords:[
@@ -53,14 +58,20 @@ class KeywordGeneratorTest {
 
     @Test
     void generateKeypraseUsingTempalateRecursively() {
-        SIMPLE_GENERATOR.recursivePhraseGeneration(THREE_TYPE_TEMPLATE.getSequence(), null, null, phrases)
+        new KeywordGenerator(keywords:(KEYWORDS), templates:(TEMPLATES)).recursivePhraseGeneration(THREE_TYPE_TEMPLATE.getSequence(), null, null, phrases)
         assertThat(phrases, IsIterableContainingInOrder.contains(PHRASES.toArray()))
     }
 
     @Test
     void generateKyephrases() {
-        assertThat(SIMPLE_GENERATOR.generateKeyphrases(), IsIterableContainingInOrder.contains(PHRASES.toArray()))
+        assertThat(new KeywordGenerator(keywords:(KEYWORDS), templates:(TEMPLATES)).generateKeyphrases(), IsIterableContainingInOrder.contains(PHRASES.toArray()))
     }
 
+    @Test
+    void skipsTemplates(){
+        def actualTemplates = new KeywordGenerator(keywords:(KEYWORDS), templates:(TEMPLATES))
+                    .skipInvalidTemplates()
+        assertThat(actualTemplates, is(IsIterableContainingInOrder.contains(THREE_TYPE_TEMPLATE)))
+    }
 
 }

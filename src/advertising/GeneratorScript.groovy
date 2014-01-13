@@ -11,7 +11,7 @@ def generator = new KeywordGenerator(
         (GOODS_GROUP):[
                 "беговые дорожки"
         ],
-        (NAME):[],
+        (NAME):["USA STYLE UF-88888"],
 
         (ACTION):["найти", "купить", "подобрать", "сравнить", "выбрать" ],
         (LOCATION):["киев"],
